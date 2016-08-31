@@ -1,0 +1,5 @@
+## install adroid-tools for fastboot and adb
+## update clockworkmod
+sudo fastboot flash recovery recovery-clockwork-touch-6.0.4.3-toro.img
+## download cyangon, gapps
+## from recovery mode, install via sideload 

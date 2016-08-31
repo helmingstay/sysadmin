@@ -1,0 +1,22 @@
+kage
+makepkg -s
+pacman -U ...tar.xz
+nmcli con up id SATELLITE HARVARD
+## control key
+https://wiki.archlinux.org/index.php/Xmodmap#Keymap_table
+## need to remove any previous defns of Super_L
+http://unix.stackexchange.com/questions/4485/reassign-ctl-and-alt-keys-xmodmap-error
+
+
+## multihead in library?
+xrandr --output HDMI1 --pos 0x768 --above eDP1 --noprimary
+xrandr --output eDP1 --primary --pos 0x0 
+## mirror output
+xrandr --output HDMI1 --mode 1024x768 --auto
+xrandr --output eDP1 --mode 1024x768 --auto
+## restore
+xrandr --output eDP1 --mode 1366x768
+
+## display disable blanking
+#http://ptspts.blogspot.be/2009/10/screen-blanking-dpms-screen-saver.html
+xset s off

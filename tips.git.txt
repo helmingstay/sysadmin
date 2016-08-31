@@ -1,0 +1,22 @@
+## http://stackoverflow.com/questions/10998792/how-to-color-the-git-console-in-ubuntu
+git config --global color.ui auto
+
+## search log, show diff
+git log -G "pattern" -p
+
+## github push existing project:
+cd /path/to/my/repogit 
+git remote add origin git@bitbucket.org:helmingstay/repo_name.git 
+git push -u origin --all # pushes up the repo and its refs for the first time
+git push -u origin --tags # pushes up any tags
+
+## from man git pull
+## In Git 1.7.0 or later, 
+## to cancel a conflicting merge, use:
+git reset --merge.
+
+## tag, sign
+git tag -u 6930EFB5 -m "Message" mark_tagname
+
+## checkout single file from stash
+git checkout stash@{0} -- <filename>

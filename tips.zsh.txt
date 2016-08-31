@@ -1,0 +1,13 @@
+## http://zsh.sourceforge.net/Intro/intro_2.html
+for dir in setup.large/days.(m|s)*(/); do touch $dir/.test; done
+
+## strip path from param/variable
+## http://zsh.sourceforge.net/Doc/Release/Expansion.html#Modifiers
+for ii in `ls /tmp` ; do echo $ii:t  ; done
+for ii in amy/*.xls*(:t) ; do echo $ii >> tmp.txt; done
+##
+:h basedir
+:t filename
+
+## sed replace last quote in all files matching pattern
+for ii in **/*.dly; do sed  -i 's/ "".$//' $ii  ; done

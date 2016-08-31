@@ -1,0 +1,43 @@
+## btrfs
+## detailed tutorial r.e. space:
+# http://marc.merlins.org/perso/btrfs/post_2014-05-04_Fixing-Btrfs-Filesystem-Full-Problems.html
+# https://btrfs.wiki.kernel.org/index.php/FAQ#Help.21_I_ran_out_of_disk_space.21
+btrfs fi show /dev/device
+btrfs fi df /mountpoint
+btrfs fi balance start /mountpoint
+## show status
+btrfs fi balance status -v /mountpoint
+## overview
+sudo btrfs fi usage /
+
+## color in gnome-terminal
+## add custom command bin/my.zsh.colors.sh
+## TERM=xterm-256color exec /bin/zsh
+
+## search
+w3m http://www.google.com/search?q="dwt+cran"
+
+## ctl-s: stuck / ctl-q unstick
+## http://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
+
+## tmux - reread config file
+tmux source-file ~/.tmux.conf
+
+## gnome-terminal, toggle menubar
+C-Sh-m
+
+## compiling tmux on henry2,
+## e.g. use custom library locs / override existing...
+## C_INCLUDE_PATH=/home/cegunnin/local/include
+## CPATH=/home/cegunnin/local/include
+## LIBRARY_PATH=/home/cegunnin/local/lib
+## LD_LIBRARY_PATH=/home/cegunnin/local/lib
+
+## tmux resize pane
+:resize-pane -L 2
+
+## track progress of find with lsof 
+# http://serverfault.com/questions/341143/linux-find-command-show-progress
+lsof -Fn -a -c find -d cwd +r 10
+
+## cli network traffic https://wiki.archlinux.org/index.php/VnStat

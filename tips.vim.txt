@@ -1,0 +1,9 @@
+## disable autocomments on paste
+:set paste
+## buffer wc
+g C-g
+## arch linux x buffer:
+https://bbs.archlinux.org/viewtopic.php?id=104903
+modify PKGBUILD to --with-x=yes 
+## x buffer
+*

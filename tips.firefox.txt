@@ -1,0 +1,26 @@
+## https://wiki.archlinux.org/index.php/firefox_tweaks#General_user_interface_CSS_settings
+## https://support.mozilla.org/en-US/questions/1019100
+
+~/.mozilla/firefox/profilekey/chrome/userContent.css:
+## fixes FB
+button, input, select, select > input[type="button"], textarea {
+  -moz-appearance: none !important;
+  color: black;
+  background-color: darkgrey !important;
+}
+
+
+## fixes gmail, kinda
+@-moz-document domain("mail.google.com")
+{
+    .editable
+    {
+      color: #DDF;
+      background-color: #555 !important;
+    }
+    .aaZ {
+        background: none repeat scroll 0% 0% #222;
+    }
+}
+
+

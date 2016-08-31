@@ -1,0 +1,101 @@
+## lxde autostart config
+.config/lxsession/LXDE/autostart
+
+## power config
+/etc/systemd/logind.conf
+/etc/udev/rules.d/
+## low batt rules
+/etc/udev/rules.d/99-lowbat.rules
+
+## archive size of packages
+du -sh /var/cache/pacman/pkg/
+## change default cache location in /etc/pacman.conf
+#CacheDir    = /home/xian/archive/pkg
+
+## mount tablet
+## details at https://wiki.archlinux.org/index.php/MTP
+## and http://forums.fedoraforum.org/showthread.php?t=284741
+## edit /etc/fuse.conf to allow user access
+jmtpfs -o allow_other ~/mount/tablet
+fusermount -u ~/mount/tablet
+
+##pacman
+## full upgrade
+pacman -Sy package
+
+## select upgrade
+pacman -S package
+
+##!! dont do this!!
+##!! pacman -Sy and then pacman -S package
+
+## cache
+##The built-in option to remove all the cached packages that are not currently installed is:
+pacman -Sc
+
+## file list
+pacman -Qql package
+
+## abs
+## edit /etc/pacman.conf, add IgnoreGroup = modified
+## update PACKAGER  in /etc/makepkg.conf
+####
+## update tree with 
+sudo abs
+## find package repo, make local copy
+pacman -Si pkg
+cp -rp /var/abs/X/pkg ~/src/abs
+## edit PKGBUILD
+## add groups=('modified')
+## use --pkg for split packages
+makepkg -s [--pkg a,b]
+
+## ID packages thusly built
+expac "%n %p" | grep "myname" | column -t
+
+## printer
+# sudo systemctl start org.cups.cupsd.service
+# hp-setup -u
+# sudo      system-config-printer
+# lpinfo -v
+lpstat -p HP_LaserJet_P3005 
+sudo cupsenable HP_LaserJet_P3005 
+lpq -a
+lprm
+
+## ccache
+## from https://bbs.archlinux.org/viewtopic.php?id=175920
+ln -s /usr/bin/ccache /usr/local/bin/gcc
+ln -s /usr/bin/ccache /usr/local/bin/g++
+Also note that you may need to enable ccache in /etc/makepkg.conf - it's negated in the options with !ccache, just remove the exclamation mark.
+
+## using cronie to run cron jobs, link to exec files in ~/bin
+
+## journal
+journalctl --since="2012-10-30 18:17:16"
+## this boot
+journalctl -b
+## follow
+# journalctl -f
+
+## Firefox has a super-slow crash
+## in /etc/systemd/coredump.conf:
+Storage=none
+
+## Limit journal size
+## in /etc/systemd/journald.conf:
+SystemMaxUse=200M
+
+## Btrfs: Disable CoW for journald/db files
+sudo chattr +C /var/log/journal/*
+lsattr /var/log/journal/*
+## check fragmentation
+filefrag /var/log/journal/*/*
+## defrag 
+time sudo btrfs fi defrag -r -v -f /var/log/
+
+## disable touchpad wakeup
+sudo bash -c "echo TPAD > /proc/acpi/wakeup"
+## or edit /etc/tmpfiles.d/disable-touchpad-wakeup.conf
+# to contain
+# w /proc/acpi/wakeup - - - - TPAD
