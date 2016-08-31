@@ -1,0 +1,38 @@
+
+## mouse pointer disappearing
+gsettings set org.gnome.settings-daemon.plugins.cursor active false
+
+## blinking termingal cursor
+gsettings set org.gnome.desktop.interface cursor-blink false
+
+## dim backlight
+xbacklight -set 5
+
+## 
+sudo pm-hibernate
+
+## Disable dash in 13.10
+## http://wtanaka.com/node/8025
+dconf write /org/compiz/profiles/unity/plugins/unityshell/show-launcher '"Disabled"'
+
+## Control key
+## http://askubuntu.com/questions/137172/how-to-remap-superleft-key-to-control-key
+xmodmap -pm
+## into .xmodmaprc
+remove mod4 = Super_L
+add control = Super_L
+
+## trackpad
+## http://askubuntu.com/questions/65951/how-to-disable-the-touchpad
+xinput list
+xinput --enable 12
+
+
+## fstab, partition labels /uuids:
+## https://wiki.archlinux.org/index.php/fstab
+
+## http://askubuntu.com/questions/85065/how-to-lock-touchpad-while-typing
+syndaemon -i .5 -K -t -R -d
+
+## fixing suspend
+## https://plus.google.com/+PedroLarroy/posts/6CgQypQukMa
