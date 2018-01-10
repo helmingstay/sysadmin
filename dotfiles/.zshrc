@@ -57,9 +57,11 @@ alias lxauto='vi ~/.config/lxsession/LXDE/autostart'
 ## prompt
 autoload -U promptinit
 promptinit
-##
 
-export PS1="%l %T %n@%m:%~$" # history.24Htime-user@host:workingdir$
+autoload -U colors && colors
+##
+#PS1='\[\033[01;34m\]%l %T %n@%m:\[\033[00m\]%~\[\033[01;32m\]$[\033[00m\]' 
+PS1="%{$fg[blue]%}%l %T %n@%m:%{$reset_color%}%{$fg[green]%}%~$%{$reset_color%}" # history.24Htime-user@host:workingdir$
 #########################################
 # end xian config
 #########################################
