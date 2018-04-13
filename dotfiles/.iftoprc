@@ -1,0 +1,3 @@
+use-bytes: yes
+log-scale: yes
+max-bandwidth: 10000M
