@@ -20,6 +20,7 @@ compinit
 export IRCNICK="helmingstay"
 # golang
 export GOPATH=~/src/gocode
+export PATH=$PATH:~/bin
 # bash keybindings?
 # bindkey -v
 # shell/cli related
@@ -37,7 +38,6 @@ alias ddu='du -sh'
 alias RR='R --no-restore-data --no-save'
 alias vi='vim'
 alias grep='grep --color -n'
-alias lfeh='feh -F --draw-filename --draw-exif --fontpath /usr/share/fonts/truetype/liberation/ -e "LiberationSans-Regular/16"'
 alias rvn='R --no-restore-data'
 alias rvn_clean='R --vanilla'
 ## zsh key bindings
@@ -54,6 +54,8 @@ export BUILDDIR=~/build
 alias xbs='xbacklight -set'
 alias ino.serial='ino serial -- --escape p'
 alias lxauto='vi ~/.config/lxsession/LXDE/autostart'
+alias lfeh='feh -F --draw-filename --draw-exif --fontpath /usr/share/fonts/truetype/liberation/ -e "LiberationSans-Regular/16"'
+alias my.iftop='sudo iftop -c ~xian/.iftoprc -n -i wlan0'
 ## prompt
 autoload -U promptinit
 promptinit

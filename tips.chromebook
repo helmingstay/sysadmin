@@ -1,3 +1,19 @@
+## 2018-06-05: move to debian stretch 
+# testing mate, can't disable automount
+# dconf-settings
+# dconf write /org/mate/desktop/media-handling/automount false
+### Switched to lxde
+## Works for lxde:  Pcmanfm->Edit->Preferences->Volume Management 
+## usb reset: working c script
+# https://askubuntu.com/questions/645/how-do-you-reset-a-usb-device-from-the-command-line/988297#988297
+## usb persistent name: /etc/udev/rules.d/70-persistent-net.rules.
+# https://unix.stackexchange.com/questions/386162/how-to-set-up-an-usb-ethernet-interface-in-linux
+##
+# * .Xmodmap works as-is
+# * disable power button: /etc/systemd/logind.conf
+
+
+## old.. 2014?
 kage
 makepkg -s
 pacman -U ...tar.xz
