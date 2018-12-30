@@ -29,3 +29,11 @@
 * Setup fbpanel
     - rework `.config/fbpanel/default`
     - Change icon theme
+
+## Resize swap (2018-12-29)
+* btrfs: shrink /home
+* parted: shrink home partition
+* btrfs: resize max /home
+* Delete old swap part
+* Add new swap
+* `mkswap /dev/...`, update /etc/fstab
