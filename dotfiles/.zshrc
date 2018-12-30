@@ -19,8 +19,7 @@ compinit
 ########################################
 export IRCNICK="helmingstay"
 # golang
-export GOPATH=~/src/gocode
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/local/bin
 # bash keybindings?
 # bindkey -v
 # shell/cli related
