@@ -37,3 +37,6 @@
 * Delete old swap part
 * Add new swap
 * `mkswap /dev/...`, update /etc/fstab
+* Refs/Notes:
+    - single-user mode target: `systemctl rescue` 
+    - resize: https://www.kubuntuforums.net/showthread.php/72472-Resizing-a-btrfs-partition
