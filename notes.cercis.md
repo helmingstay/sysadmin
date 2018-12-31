@@ -40,3 +40,21 @@
 * Refs/Notes:
     - single-user mode target: `systemctl rescue` 
     - resize: https://www.kubuntuforums.net/showthread.php/72472-Resizing-a-btrfs-partition
+
+## 2018-12-30: Login / power management
+* mate power management in tray
+    - disable all but...? 
+* remove light-locker
+    - fixed problem with double-lock requiring user login and unlock
+* remove lightdm, replace with lxdm
+    - fixes blank unlock screen, hidpi
+    - locks on screen close (with popup error on unlock)
+* Ignore lid events
+    - Remove from `/etc/systemd/logind.conf`
+* Suspend script
+    - Lock with xscreensaver
+    - TODO: still waking up from lid open 
+* Tested acpid
+    - breaks mouse / pointer functionality
+    - requires additional config to honor mate power manager settings
+    - possibly breaks screen brightness keys?
