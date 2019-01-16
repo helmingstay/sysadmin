@@ -20,7 +20,10 @@ compinit
 export IRCNICK="helmingstay"
 # golang
 export GOPATH=~/src/gocode
-export PATH=$PATH:~/bin
+## .local: python / pip
+export PATH=$PATH:~/bin:~/local/bin:~/.local/bin/
+## https://fabric.io/features/distribution
+export PATH="$HOME/.fastlane/bin:$PATH"
 # bash keybindings?
 # bindkey -v
 # shell/cli related
@@ -49,6 +52,11 @@ export LESS="-iMSx4 -FX"
 export PGDATABASE=iquitos
 export BUILDDIR=~/build
 
+## android studio
+# https://www.airaghi.net/en/2017/09/21/linux-change-temporary-directory-for-android-studio
+export _JAVA_OPTIONS=-Djava.io.tmpdir=/home/xian/local/tmp
+
+
 
 ## programs
 alias xbs='xbacklight -set'
@@ -64,6 +72,11 @@ autoload -U colors && colors
 ##
 #PS1='\[\033[01;34m\]%l %T %n@%m:\[\033[00m\]%~\[\033[01;32m\]$[\033[00m\]' 
 PS1="%{$fg[blue]%}%l %T %n@%m:%{$reset_color%}%{$fg[green]%}%~$%{$reset_color%}" # history.24Htime-user@host:workingdir$
+
+## ?? https://unix.stackexchange.com/questions/169241/xdg-open-doesnt-handle-percent-encoded-file-urls-with-lxde
+XDG_CURRENT_DESKTOP=gnome
 #########################################
 # end xian config
 #########################################
+
+

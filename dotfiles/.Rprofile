@@ -5,6 +5,7 @@ library(utils)
 options(error=recover) ## requires utils package
 options(repos=c(CRAN="https://cloud.r-project.org/"), download.file.method = "libcurl")
 .libPaths(.libPaths())
+options(browser='firefox')
 
 #Sys.setenv(TZ="GMT")
 Sys.setenv(TZ="America/Phoenix")  #doesn't work with xts::apply.daily(), fixed?
@@ -68,7 +69,14 @@ os <- function(obj) print(object.size(obj), units='auto')
 s2p = function(str) {as.POSIXct(str)}
 hs = function(x=500) history(x)
 ps = function(x) print(system.time(x))
-pss = function(file) print(system.time(source(file)))
+pss = function(fn) {
+    msg <- sprintf(c('## Running %s.\n', '## Finished %s:\n'), rep(fn,2))
+    cat(msg[1])
+    tt <- system.time(source(fn))
+    cat(msg[2])
+    print(tt)
+    
+}
 sh = savehistory
 ## run contents of vim "copy buffer"
 rr = function(file='~/.rbuff.R') pss(file)
