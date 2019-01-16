@@ -17,20 +17,17 @@ compinit
 #########################################
 # xian config
 ########################################
-export IRCNICK="helmingstay"
-# golang
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent`
+fi
 export PATH=$PATH:~/local/bin
-# bash keybindings?
-# bindkey -v
 # shell/cli related
 alias xb='xbacklight -set'
-alias bashrc='vi ~/.zshrc && . ~/.zshrc'
 alias disp='export DISPLAY=:0.0'
-#alias '?'='pushd ~'
-#alias cd='pushd'
-#alias pd='popd'
 alias ls='ls -hF --color=tty'                 # classify files in colour
 alias lls='ls -alh'                 
+alias lsh='ls -alh . | head'                 
+alias lsw='ls -alh . | wc'                 
 ## other double-letter customs
 alias ddf='df -kh'
 alias ddu='du -sh'
