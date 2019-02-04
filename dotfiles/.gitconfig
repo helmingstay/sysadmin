@@ -8,7 +8,7 @@
     abbrevCommit = true
 
 [user]
-	name = xian@oryza
+	name = xian@cercis
 	email = code@x14n.org
 [push]
 	default = simple

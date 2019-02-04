@@ -20,7 +20,7 @@ compinit
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent`
 fi
-export PATH=$PATH:~/local/bin
+export PATH=$PATH:~/bin:~/local/bin
 # shell/cli related
 alias xb='xbacklight -set'
 alias disp='export DISPLAY=:0.0'

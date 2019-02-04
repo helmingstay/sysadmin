@@ -58,3 +58,31 @@
     - breaks mouse / pointer functionality
     - requires additional config to honor mate power manager settings
     - possibly breaks screen brightness keys?
+
+## 2019-01-26 - ...
+* Cursor size
+    - .config/lxsession/LXDE/desktop.conf
+* TinyTex install in R
+    - `tinytex::install_tinytex()`
+    - Update packages:
+```
+library(tinytex)
+tlmgr_search('/times.sty')   # search for times.sty
+tlmgr_install('psnfss')      # install the psnfss package
+tlmgr_update()  
+```
+
+## 2019-02-04
+* Firefox plugins
+    - Adblock plus
+    - Dark Reader
+    - Open Tabs Next to Current
+    - Tab Session Manager
+    - Conex?
+* Upgrade Firefox:
+    - Edit /etc/apt/preferences (pin unstable at 100)
+* Firefox version / pinning refs:
+    - https://mozilla.debian.net/
+    - https://unix.stackexchange.com/questions/278003/how-can-i-use-unstable-repositories-and-install-only-packages-in-testing-by-defa 
+    - https://www.binarytides.com/enable-testing-repo-debian/
+
