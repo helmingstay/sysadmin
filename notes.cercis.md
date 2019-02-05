@@ -78,11 +78,17 @@ tlmgr_update()
     - Dark Reader
     - Open Tabs Next to Current
     - Tab Session Manager
-    - Conex?
+    - Conex
+    - Firefox Multi-Account containers (works with conex)
+* Containers backup (for conex and friends)
+    - Search for containers.json and storage.js
+    - ref: https://www.reddit.com/r/firefox/comments/8qfxo7/firefox_containers_export/
 * Upgrade Firefox:
     - Edit /etc/apt/preferences (pin unstable at 100)
 * Firefox version / pinning refs:
     - https://mozilla.debian.net/
     - https://unix.stackexchange.com/questions/278003/how-can-i-use-unstable-repositories-and-install-only-packages-in-testing-by-defa 
     - https://www.binarytides.com/enable-testing-repo-debian/
+* Add bin/ to repo
+    - add dropbox.update.sh (kenyon gmail login)
 
