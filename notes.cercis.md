@@ -92,3 +92,17 @@ tlmgr_update()
 * Add bin/ to repo
     - add dropbox.update.sh (kenyon gmail login)
 
+## 2019-02-20 (and thereabouts)
+* Disable printer autodiscover:
+    - vi /etc/cups/cups-browsed.conf
+* Reset Brother Driver: Generic PCL 6/PCL XL Printer Foomatic/hpijs-pcl5e
+
+## 2019-03-10
+* Attempt at trackpad config via libinput
+    - installed xinput, libinput-tools
+    - see, e.g., `xinput list-props "Elan Touchpad"`
+    - no left/right edge options??
+* Refs
+    - https://wiki.debian.org/SynapticsTouchpad
+    - https://wiki.archlinux.org/index.php/libinput
+    
