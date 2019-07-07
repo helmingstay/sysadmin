@@ -1,4 +1,3 @@
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -17,9 +16,14 @@ compinit
 #########################################
 # xian config
 ########################################
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent`
+## one ssh-agent shared across shells 
+## https://unix.stackexchange.com/questions/90853/how-can-i-run-ssh-add-automatically-without-a-password-prompt
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
 export PATH=$PATH:~/bin:~/local/bin
 # shell/cli related
 alias xb='xbacklight -set'
@@ -60,6 +64,7 @@ autoload -U colors && colors
 ##
 #PS1='\[\033[01;34m\]%l %T %n@%m:\[\033[00m\]%~\[\033[01;32m\]$[\033[00m\]' 
 PS1="%{$fg[blue]%}%l %T %n@%m:%{$reset_color%}%{$fg[green]%}%~$%{$reset_color%}" # history.24Htime-user@host:workingdir$
+
 #########################################
 # end xian config
 #########################################

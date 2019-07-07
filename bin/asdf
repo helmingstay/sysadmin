@@ -1,4 +1,3 @@
 #!/bin/bash
-sudo echo
 xscreensaver-command -lock
-sudo systemctl suspend
+systemctl suspend
