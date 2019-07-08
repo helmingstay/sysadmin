@@ -24,3 +24,12 @@
 * Add swap file:
     - ref: https://linuxize.com/post/how-to-add-swap-space-on-debian-9/
 * Afraid.org: point here
+
+## 2019-07-07
+* Install Vesta CP
+    - disable most services
+* R installs:
+    - devtools
+        - apt deps: libcurl, libxml, libssl
+    - cellauto (fails to install)
+

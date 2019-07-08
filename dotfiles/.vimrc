@@ -2,6 +2,7 @@ set history=500
 " increment
 :nnoremap <C-i> <C-a>
 
+execute pathogen#infect()
 
 if has("gui_running")
   if has("gui_gtk2")
@@ -10,8 +11,6 @@ if has("gui_running")
     set guicursor+=i-n-v-c:blinkon0
   endif
 endif
-
-execute pathogen#infect()
 
 " https://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names
 set wildmode=longest,list,full
@@ -85,7 +84,7 @@ syntax enable
 set background=dark
 "use w/tmux
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme solarized8
 
 "syntax on
 "colorscheme slate2 

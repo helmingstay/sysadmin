@@ -18,11 +18,11 @@ compinit
 ########################################
 ## one ssh-agent shared across shells 
 ## https://unix.stackexchange.com/questions/90853/how-can-i-run-ssh-add-automatically-without-a-password-prompt
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+#if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+#  eval `ssh-agent`
+#  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+#fi
+#export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
 export PATH=$PATH:~/bin:~/local/bin
 # shell/cli related
