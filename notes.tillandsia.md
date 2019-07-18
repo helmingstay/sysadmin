@@ -33,3 +33,7 @@
         - apt deps: libcurl, libxml, libssl
     - cellauto (fails to install)
 
+## 2019-07-17
+* in R as root: `install.packages('helmingstay/cellauto.git')`
+* Add firewall rule for shiny
+* Change shiny.server project dir
