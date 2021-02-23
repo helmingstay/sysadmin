@@ -135,7 +135,7 @@ set virtualedit=block
 
 "default file types configurations
 "au BufNewFile *.tex  :r ~/headers/tex
-au FileType tex		set tw=80
+"au FileType tex		set tw=80
 au FileType txt		set tw=80
 au FileType rtf		set tw=80
 

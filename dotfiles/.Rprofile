@@ -10,7 +10,7 @@ options(repos=c(CRAN="https://cloud.r-project.org/"), download.file.method = "li
 Sys.setenv(TZ="America/Phoenix")  #doesn't work with xts::apply.daily(), fixed?
 
 if (T) {
-old <- getOption("defaultPackages"); 
+old <- getOption("defaultPackages");
 options(defaultPackages = 
     c(old, 
     ## installs commonly cause reload problems
@@ -18,7 +18,7 @@ options(defaultPackages =
     #'lattice', 
     #'ggplot2', #'RColorBrewer', ##'Rwave',
     #'zoo', #'xts', ##'dynlm', "MASS", 
-    'utils',
+    'utils', 'lattice', 'grid',
     'grid', 'data.table'
 ))
 }
@@ -68,7 +68,8 @@ os <- function(obj) print(object.size(obj), units='auto')
 s2p = function(str) {as.POSIXct(str)}
 hs = function(x=500) history(x)
 ps = function(x) print(system.time(x))
-pss = function(file) print(system.time(source(file)))
+pss = function(file, chdir=F) print(system.time(source(file, chdir=chdir)))
+psd = function(file, chdir=T) print(system.time(source(file, chdir=chdir)))
 sh = savehistory
 ## run contents of vim "copy buffer"
 rr = function(file='~/.rbuff.R') pss(file)

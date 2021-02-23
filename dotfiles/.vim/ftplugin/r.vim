@@ -48,7 +48,7 @@ set shiftwidth=4
 
 "abbreviations
 inoremap <buffer> `, <-
-inoremap <buffer> `. ->
+inoremap <buffer> `. %.>%
 inoremap <buffer> `f FALSE
 inoremap <buffer> `t TRUE
 inoremap <buffer> `n !=

@@ -152,3 +152,38 @@ GPL Ghostscript 9.27: Unrecoverable error, exit code 1
 * Fix ssh-agent
     - add .ssh/config to admin repo
 * Cleanup, archive, and nuke webfaction host
+
+## 2019-07-26
+* libinput palm detection
+    - ref: https://wayland.freedesktop.org/libinput/doc/latest/touchpad-pressure-debugging.html#touchpad-pressure-hwdb
+    - Edit `/etc/libinput/local-overrides.quirks`
+    - set AttrPalmSizeThreshold=200
+
+## 2020-01-03
+* Aspen accidental logout
+    - pointer movement and scroll issues
+    - reboot and upgrade (buster to stable)
+    - apt dist-upgrade and reboot
+
+## 2020-01-22
+* Install audiveris music software 
+    - handbook: https://bacchushlg.gitbooks.io/audiveris-5-1/content/
+    - Remove openjdk-11: `sudo apt remove openjdk-11-jre-headless:amd64`
+    - Install adoptopenjdk-8, see https://adoptopenjdk.net/installation.html#linux-pkg
+    - HiDPI doesn't work with jdk8?
+    - OCR requires tesseract 3? (not working with 4)
+    - Install musescore, fluidsynth
+## 2021-02-20
+* update/upgrade
+* Backups
+    - backup personal/gopro/vid to diospyros/media/vid
+    - Add backblaze app key b2-media, add remote to rclone
+    - see also notes.diosypros
+    - backup pixel2: 
+        - `time  rsync -auv --progress  'pixel2:/storage/emulated/0DCCIM/Camera/VID*' ~/personal/pixel2/dcim-2020-01-15/vid/`
+        - organize on cercis, transfer to diospyros: canvio/media/vid
+* Vid compress, campark 
+    - `mediainfo`
+    - test codecs: x265 (slow, good), libaom-av1 (experimental, not working), vp9 (slow)
+    - look at shotwell vid editor (need dist upgrade?)
+    - x265 crf 24 approx lossless? (x264=18+6)
