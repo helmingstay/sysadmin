@@ -55,7 +55,7 @@ alias xbs='xbacklight -set'
 alias ino.serial='ino serial -- --escape p'
 alias lxauto='vi ~/.config/lxsession/LXDE/autostart'
 alias lfeh='feh -F --draw-filename --draw-exif --fontpath /usr/share/fonts/truetype/liberation/ -e "LiberationSans-Regular/16"'
-alias my.iftop='sudo iftop -c ~xian/.iftoprc -n -i wlan0'
+alias my.iftop='sudo iftop -c ~xian/.iftoprc -n -i wlp61s0'
 ## prompt
 autoload -U promptinit
 promptinit
