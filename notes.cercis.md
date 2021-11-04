@@ -187,3 +187,56 @@ GPL Ghostscript 9.27: Unrecoverable error, exit code 1
     - test codecs: x265 (slow, good), libaom-av1 (experimental, not working), vp9 (slow)
     - look at shotwell vid editor (need dist upgrade?)
     - x265 crf 24 approx lossless? (x264=18+6)
+## 2021-10-29
+* setup rsnapshot backups
+* upgrade system to bullseye
+    - change in /etc/sudoers?
+```
+-# See sudoers(5) for more information on "#include" directives:
++# See sudoers(5) for more information on "@include" directives:
+-#includedir /etc/sudoers.d
++@includedir /etc/sudoers.d
+```
+    - postgresql13
+```                                                            │
+ │ The PostgreSQL version 11 is obsolete, but the server or client packages are still installed. Please install the   │
+ │ latest packages (postgresql-13 and postgresql-client-13) and upgrade the existing  clusters with                   │
+ │ pg_upgradecluster (see manpage).                                                                                   │
+ │                                                                                                                    │
+ │ Please be aware that the installation of postgresql-13 will automatically create a default cluster 13/main. If     │
+ │ you want to upgrade the 11/main cluster, you need to remove the already existing 13 cluster (pg_dropcluster        │
+ │ --stop 13 main, see manpage for details).                                                                          │
+ │                                                                                                                    │
+ │ The old server and client packages are no longer supported. After the existing clusters are upgraded, the          │
+ │ postgresql-11 and postgresql-client-11 packages should be removed.                                                 │
+ │                                                                                                                    │
+ │ Please see /usr/share/doc/postgresql-common/README.Debian.gz for details.                                          │
+```
+    - /etc/ssh/sshd_config:
+    `+Include /etc/ssh/sshd_config.d/*.conf`
+* apt full-upgrade change notes: 
+    - Diodon replaces clipit
+
+## 2021-10-29,30
+* debian upgrade borked due to locked xscreensave, fresh reinstall debian 11
+    - LightDM display manager, add LXDE
+    - add contrib/non-free, install firmware-linux, firmware-iwlwifi 
+* initial setup:
+    - install zsh, vim, fbpanel, git, r-base-dev, lxdm, sysstat, locate
+    - install zoom, skype
+    - others: lm-sensors/conky
+    - R package depends: libcurl4-gnutls-dev, libssl-dev, libxlm2-dev, libfontconfig1-dev
+    - system: install postgres, postgis; add user xian
+    - run chsh
+    - Power: edit /etc/systemd/logind.conf
+    - Fn-keys not working, confirm keys with xev, edit .config/openbox/lxde-rc.xml
+    -- brightnessctl, pactl 
+    -- Keyboard bindings: https://forum.puppylinux.com/viewtopic.php?t=644&i=1
+    -- `openbox --restart` 
+* themes
+    -- download (not gtk3): https://www.ubuntupit.com/best-openbox-themes-for-linux/
+    -- gtk3 themes: https://www.xfce-look.org/browse?cat=135&page=2&ord=latest
+    -- gtk3 themes: https://www.opendesktop.org/
+    -- download to ~/.themes
+    -- GTK theme: run obconf (decorators), 
+    -- lxappearance (gtk3 / within window): widget, window borders

@@ -1,3 +1,3 @@
 #!/bin/sh
 #avg-cpu:  %user   %nice %system %iowait  %steal   %idle
-iostat -c -y 2 2 |  tail -3 | head -1 | awk '{printf "User %1.1f|Sys %1.1f|io %1.1f|Idle %1.1f", $1,$3,$4,$6}'
+iostat -c -y 5 1 |  tail -4 | head -1 | awk '{printf "User %1.0f%%  Sys %1.0f%%  IO %1.0f%%  Idle %1.0f%%", $1,$3,$4,$6}'
