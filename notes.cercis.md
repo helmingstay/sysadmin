@@ -222,17 +222,22 @@ GPL Ghostscript 9.27: Unrecoverable error, exit code 1
     - LightDM display manager, add LXDE
     - add contrib/non-free, install firmware-linux, firmware-iwlwifi 
 * initial setup:
-    - install zsh, vim, fbpanel, git, r-base-dev, lxdm, sysstat, locate
-    - install zoom, skype
+    - install zsh, vim, fbpanel, git, r-base-dev, lxdm, sysstat, locate, xclip, rsync, cups
+    - add printer: 
+        -- fbpanel settings, 
+        -- Brother ipp connect
+    - install zoom, skype, uga anyconnect
     - others: lm-sensors/conky
     - R package depends: libcurl4-gnutls-dev, libssl-dev, libxlm2-dev, libfontconfig1-dev
     - system: install postgres, postgis; add user xian
     - run chsh
     - Power: edit /etc/systemd/logind.conf
-    - Fn-keys not working, confirm keys with xev, edit .config/openbox/lxde-rc.xml
-    -- brightnessctl, pactl 
-    -- Keyboard bindings: https://forum.puppylinux.com/viewtopic.php?t=644&i=1
-    -- `openbox --restart` 
+    - Fn-keys not working: 
+        - confirm keys with xev
+        - edit .config/openbox/lxde-rc.xml
+        -- brightnessctl, pactl 
+        - `openbox --restart` 
+        - ref: https://forum.puppylinux.com/viewtopic.php?t=645&i=1
 * themes
     -- download (not gtk3): https://www.ubuntupit.com/best-openbox-themes-for-linux/
     -- gtk3 themes: https://www.xfce-look.org/browse?cat=135&page=2&ord=latest
@@ -240,3 +245,18 @@ GPL Ghostscript 9.27: Unrecoverable error, exit code 1
     -- download to ~/.themes
     -- GTK theme: run obconf (decorators), 
     -- lxappearance (gtk3 / within window): widget, window borders
+
+## 2021-11-14
+* Borked openwrt router dhcp with duplicate static IPs
+    - Reset router into failsafe mode
+    -- Ref: https://openwrt.org/docs/guide-user/troubleshooting/failsafe_and_factory_reset
+    - manually edit /etc/network/interfaces:
+```
+auto enp0s31f6
+    iface enp0s31f6 inet static
+        address 192.168.1.10/24
+        gateway 192.168.1.1
+```
+    -- `ip addr; ifup enp0s31f6`
+    -- Ref: https://wiki.debian.org/NetworkConfiguration#Starting_and_Stopping_Interfaces
+    - on router, mount root and edit /etc/config/dhcp

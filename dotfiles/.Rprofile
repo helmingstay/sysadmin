@@ -71,6 +71,9 @@ ps = function(x) print(system.time(x))
 pss = function(file, chdir=F) print(system.time(source(file, chdir=chdir)))
 psd = function(file, chdir=T) print(system.time(source(file, chdir=chdir)))
 sh = savehistory
+## https://stackoverflow.com/questions/31381066/r-function-to-scale-ggplot2-lattice-or-base-r-graph-proportionally/32412384#32412384
+gg.print <- function(x, scale=2)
+    print(x, vp=viewport(gp=gpar(cex=scale, lex=scale)))
 ## run contents of vim "copy buffer"
 rr = function(file='~/.rbuff.R') pss(file)
 ## 
@@ -84,6 +87,7 @@ mypdf <- function(
         } else code
     dev.off()
 }
+
 
 # example
 # allsn.z = mk.zoo(all.to20071218[ ! '\\d+/\\d+/1999 ' %=~% all.to20071218$timestamp ,])

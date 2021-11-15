@@ -26,7 +26,7 @@ export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
 export PATH=$PATH:~/bin:~/local/bin
 # shell/cli related
-alias xb='xbacklight -set'
+alias xb='brightnessctl set'
 alias disp='export DISPLAY=:0.0'
 alias ls='ls -hF --color=tty'                 # classify files in colour
 alias lls='ls -alh'                 
