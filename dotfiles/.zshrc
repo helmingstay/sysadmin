@@ -51,7 +51,6 @@ export BUILDDIR=~/build
 
 
 ## programs
-alias xbs='xbacklight -set'
 alias ino.serial='ino serial -- --escape p'
 alias lxauto='vi ~/.config/lxsession/LXDE/autostart'
 alias lfeh='feh -F --draw-filename --draw-exif --fontpath /usr/share/fonts/truetype/liberation/ -e "LiberationSans-Regular/16"'

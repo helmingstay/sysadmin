@@ -222,10 +222,11 @@ GPL Ghostscript 9.27: Unrecoverable error, exit code 1
     - LightDM display manager, add LXDE
     - add contrib/non-free, install firmware-linux, firmware-iwlwifi 
 * initial setup:
-    - install zsh, vim, fbpanel, git, r-base-dev, lxdm, sysstat, locate, xclip, rsync, cups
+    - install zsh, vim-gtk3, fbpanel, git, r-base-dev, lxdm, sysstat, locate, xclip, rsync, cups, rclone
     - add printer: 
         -- fbpanel settings, 
         -- Brother ipp connect
+        -- install printer-driver-brlaser?
     - install zoom, skype, uga anyconnect
     - others: lm-sensors/conky
     - R package depends: libcurl4-gnutls-dev, libssl-dev, libxlm2-dev, libfontconfig1-dev
@@ -260,3 +261,11 @@ auto enp0s31f6
     -- `ip addr; ifup enp0s31f6`
     -- Ref: https://wiki.debian.org/NetworkConfiguration#Starting_and_Stopping_Interfaces
     - on router, mount root and edit /etc/config/dhcp
+## 2021-11-16
+* New usb3 hub
+* Config USB wireless keyboard: swap ctrl:
+    - `setxkbmap -layout us -option ctrl:nocaps`
+* Printer text quality
+    - `sudo apt install printer-driver-brlaser`
+    - Disable shrink-to-fit
+
