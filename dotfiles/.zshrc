@@ -24,7 +24,7 @@ if [ ! -S ~/.ssh/ssh_auth_sock ]; then
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
-export PATH=$PATH:~/bin:~/local/bin
+export PATH=$PATH:~/bin:~/local/bin:~/.local/bin
 # shell/cli related
 alias xb='brightnessctl set'
 alias disp='export DISPLAY=:0.0'

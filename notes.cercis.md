@@ -269,3 +269,9 @@ auto enp0s31f6
     - `sudo apt install printer-driver-brlaser`
     - Disable shrink-to-fit
 
+## 2022-02-05
+* Install curl, keybase
+
+## 2022-03-25
+* package install for R gis dependencies
+- libgdal-dev, libgeos-dev
