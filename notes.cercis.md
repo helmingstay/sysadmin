@@ -280,3 +280,12 @@ auto enp0s31f6
 * apt install sshfs
 * Cleanup ~/admin
     - Add ~/admin/mnt for sshfs to carya
+* Image viewer
+    - qView? .deb: https://interversehq.com/qview/download/
+    - tried to install nomacs image viewer, not in bullseye (in sid but not backports)
+    - backports tutorial: https://www.how2shout.com/linux/how-to-install-and-use-backports-in-debian-11-bullseye/
+* HiDPI console setup:
+    - http://www.ateijelo.com/blog/2017/02/01/linux-console-high-dpi-display
+    - see /usr/share/consolefonts for options
+    - edit /etc/default/console-setup 
+    - run `setupcon`
