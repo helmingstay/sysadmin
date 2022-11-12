@@ -1,0 +1,3 @@
+## Copy to ~/.ssh
+## .config is symlink to repo dotfile
+Include .config

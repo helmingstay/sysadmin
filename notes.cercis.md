@@ -275,3 +275,8 @@ auto enp0s31f6
 ## 2022-03-25
 * package install for R gis dependencies
 - libgdal-dev, libgeos-dev
+
+## 2022-11-11
+* apt install sshfs
+* Cleanup ~/admin
+    - Add ~/admin/mnt for sshfs to carya
