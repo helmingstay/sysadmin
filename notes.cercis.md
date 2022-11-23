@@ -289,3 +289,13 @@ auto enp0s31f6
     - see /usr/share/consolefonts for options
     - edit /etc/default/console-setup 
     - run `setupcon`
+
+## 2022-11-22
+* laptop screen not receiving input?
+    - use Alt-L-click to drag windows
+* Openbox shortcut: redecorate window 
+    - https://askubuntu.com/questions/453953/how-to-redecorate-windows 
+    - `cd .config/openbox; ln -s ~/admin/dotfiles/lxde-rc.xml .`
+    - `openbox --reconfigure`
+* Openbox shortcut: MoveResizeTo
+    - `<keybind key="A-W-2"> <action name="MoveResizeTo"> <monitor>2</monitor> </action> </keybind>`
