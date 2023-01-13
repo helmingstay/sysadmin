@@ -2,16 +2,23 @@ set history=500
 " increment
 :nnoremap <C-i> <C-a>
 
+"xian 2023-01
+"let X handle mouse (middle-click paste)
+set mouse=
 
-if has("gui_running")
-  if has("gui_gtk2")
-    "set guifont=Consolas\ 20
-    set guifont=Nimbus\ Mono\ L\ Bold\ 32
-    set guicursor+=i-n-v-c:blinkon0
-  endif
-endif
 
 execute pathogen#infect()
+
+syntax enable
+set background=dark
+"use w/tmux
+let g:solarized_termcolors=256
+" fix weird background color
+let g:solarized_termtrans = 1
+
+colorscheme solarized
+"syntax on
+"colorscheme slate2 
 
 " https://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names
 set wildmode=longest,list,full
@@ -81,14 +88,6 @@ set nocp
 "Ignore case in searches
 set ignorecase
 
-syntax enable
-set background=dark
-"use w/tmux
-let g:solarized_termcolors=256
-colorscheme solarized
-
-"syntax on
-"colorscheme slate2 
 
 :hi StatusLineNC ctermfg=cyan
 "Incremental search (whatever that means)
@@ -123,7 +122,7 @@ set noerrorbells
 "absolute quiet?
 "set t_vb=
 " Hide the mouse pointer while typing, from Alan De Smet
-set mousehide
+"set mousehide
 "always show the status line
 set laststatus=2
 "custom line: look at vim help
@@ -149,24 +148,5 @@ imap =eqa* \begin{equation*}<CR>\begin{aligned}<CR><CR>\end{aligned}<CR>\end{equ
 imap =equ* \begin{equation*}<CR><CR>\end{equation*}<Esc>$ka
 imap =equ \begin{equation}<CR><CR>\end{equation}<Esc>$ka
 
-
-
 "unindent
 imap <S-Tab> <C-o><<
-
-
-"disable mouse scroll
-set mouse=i
-
-imap <ScrollWheelUp> <nop>
-imap <S-ScrollWheelUp> <nop>
-imap <C-ScrollWheelUp> <nop>
-imap <ScrollWheelDown> <nop>
-imap <S-ScrollWheelDown> <nop>
-imap <C-ScrollWheelDown> <nop>
-imap <ScrollWheelLeft> <nop>
-imap <S-ScrollWheelLeft> <nop>
-imap <C-ScrollWheelLeft> <nop>
-imap <ScrollWheelRight> <nop>
-imap <S-ScrollWheelRight> <nop>
-imap <C-ScrollWheelRight> <nop>

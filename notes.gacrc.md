@@ -5,3 +5,4 @@
 * setup dotfiles
 * alias for interact
 * request tmux version upgrade
+* symlink local/bin to admin/bin
