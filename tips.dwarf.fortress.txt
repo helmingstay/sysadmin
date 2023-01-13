@@ -1,8 +1,0 @@
-## using lazy newbie pack
-## Use libgraphics.so from:
-# https://github.com/svenstaro/dwarf_fortress_unfuck
-# then rm df/libs/libstdc++.so.6
-# see: https://github.com/andrewd18/df-lnp-installer/issues/36
-
-## dwarftherapist permissions (check path):
-# setcap cap_sys_ptrace=eip /usr/bin/dwarftherapist
