@@ -7,4 +7,4 @@ read -s  dewey_pw
 DEWEY_BASIC=$(echo -n "$dewey_user:$dewey_pw" | openssl base64)
 DEWEY_TOKEN=$(curl -X POST "https://marketplace.deweydata.io/api/auth/tks/get_token" -H "Authorization: Basic $DEWEY_BASIC")
 ## just the token
-echo $DEWEY_TOKEN | sed 's/.*access_token":"\([^"]*\)".*/\1/;'
+echo -n $DEWEY_TOKEN | sed 's/.*access_token":"\([^"]*\)".*/\1/;'

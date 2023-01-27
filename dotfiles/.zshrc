@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
-setopt autocd notify
+setopt notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -31,3 +31,4 @@ PS1="%{$fg[green]%}%l %T %n@%m:%{$reset_color%}%{$fg[green]%}%~$%{$reset_color%}
 
 alias my.mod.R='module load R/4.2.1-foss-2020b'
 alias lls='ls -alh'
+source .modules
