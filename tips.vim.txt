@@ -7,3 +7,8 @@ https://bbs.archlinux.org/viewtopic.php?id=104903
 modify PKGBUILD to --with-x=yes 
 ## x buffer
 *
+
+## 2023-10: reading Practical Vim, 2nd ed, Drew Neil
+## Ch7 files:
+* :set path+=./**
+* :set wildmode=full

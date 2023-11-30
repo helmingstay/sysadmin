@@ -5,6 +5,8 @@ library(utils)
 options(error=recover) ## requires utils package
 options(repos=c(CRAN="https://cloud.r-project.org/"), download.file.method = "libcurl")
 .libPaths(.libPaths())
+## 2023-01, https://www.census.gov/developer/
+.census.key='2b30e98e2928ef69276002eb4e11e1b25036fe25'
 
 #Sys.setenv(TZ="GMT")
 Sys.setenv(TZ="America/Phoenix")  #doesn't work with xts::apply.daily(), fixed?

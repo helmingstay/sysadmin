@@ -149,24 +149,7 @@ imap =eqa* \begin{equation*}<CR>\begin{aligned}<CR><CR>\end{aligned}<CR>\end{equ
 imap =equ* \begin{equation*}<CR><CR>\end{equation*}<Esc>$ka
 imap =equ \begin{equation}<CR><CR>\end{equation}<Esc>$ka
 
-
-
-"unindent
-imap <S-Tab> <C-o><<
-
-
 "disable mouse scroll
-set mouse=i
-
-imap <ScrollWheelUp> <nop>
-imap <S-ScrollWheelUp> <nop>
-imap <C-ScrollWheelUp> <nop>
-imap <ScrollWheelDown> <nop>
-imap <S-ScrollWheelDown> <nop>
-imap <C-ScrollWheelDown> <nop>
-imap <ScrollWheelLeft> <nop>
-imap <S-ScrollWheelLeft> <nop>
-imap <C-ScrollWheelLeft> <nop>
-imap <ScrollWheelRight> <nop>
-imap <S-ScrollWheelRight> <nop>
-imap <C-ScrollWheelRight> <nop>
+"set mouse=i
+" completely disable mouse
+set mouse=

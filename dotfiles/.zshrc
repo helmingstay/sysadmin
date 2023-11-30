@@ -46,14 +46,13 @@ bindkey '^R' history-incremental-search-backward
 #export PATH=$PATH:~/bin:~/src/gocode/bin
 export PAGER=less
 export LESS="-iMSx4 -FX"
-export PGDATABASE=iquitos
+#export PGDATABASE=covid
 export BUILDDIR=~/build
 
 
 ## programs
-alias ino.serial='ino serial -- --escape p'
-alias lxauto='vi ~/.config/lxsession/LXDE/autostart'
-alias lfeh='feh -F --draw-filename --draw-exif --fontpath /usr/share/fonts/truetype/liberation/ -e "LiberationSans-Regular/16"'
+## -U crashes network on disconnect
+alias my.vpn="sudo openconnect --no-dtls --authgroup='01 Default' -u cg79628 remote.uga.edu"
 alias my.iftop='sudo iftop -c ~xian/.iftoprc -n -i wlp61s0'
 ## prompt
 autoload -U promptinit
