@@ -1,6 +1,9 @@
 set history=500
-" increment
-:nnoremap <C-i> <C-a>
+" increment (don't collide with tmux control seq
+:nnoremap <C-p> <C-a>
+" save file from insert
+inoremap <C-y> <C-\><C-o>:w<cr>
+noremap <C-y> :w<cr>
 
 
 if has("gui_running")
@@ -13,12 +16,22 @@ endif
 
 execute pathogen#infect()
 
+" 2023-10: airline
+" See https://github.com/vim-airline/vim-airline/wiki/Screenshots
+"let g:airline_theme='luna'
+let g:airline_theme='minimalist'
+" https://github.com/vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
 " https://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names
 set wildmode=longest,list,full
 set wildmenu
 
 au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+" see https://stackoverflow.com/questions/67419516/vim-how-to-detect-stdin-input-in-vimrc
+au BufWinEnter * if get(v:argv, 1, '') != '' | silent loadview | endif 
 
 :filetype on
 :filetype plugin on
@@ -39,8 +52,8 @@ set softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 let Tlist_Compact_Format = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
-nnoremap <C-l> :TlistToggle<CR>
-nnoremap <C-p> :!cscope -b -k <ENTER> :cs reset<ENTER><ENTER>
+"nnoremap <C-l> :TlistToggle<CR>
+"nnoremap <C-p> :!cscope -b -k <ENTER> :cs reset<ENTER><ENTER>
 " remove extra space at bottom?
 set guiheadroom=0
 
@@ -113,7 +126,7 @@ set showmode
 "Keep cursor on same column when doing page movement
 set nostartofline
 "expansion key (I think it's like the bash command completion)
-set wildchar=<TAB>
+"set wildchar=<TAB>
 "show current position
 set ruler
 "show report on changes to file, 0 means all changes

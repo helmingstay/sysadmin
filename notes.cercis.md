@@ -275,3 +275,94 @@ auto enp0s31f6
 ## 2022-03-25
 * package install for R gis dependencies
 - libgdal-dev, libgeos-dev
+
+## 2022-11-11
+* apt install sshfs
+* Cleanup ~/admin
+    - Add ~/admin/mnt for sshfs to carya
+* Image viewer
+    - qView? .deb: https://interversehq.com/qview/download/
+    - tried to install nomacs image viewer, not in bullseye (in sid but not backports)
+    - backports tutorial: https://www.how2shout.com/linux/how-to-install-and-use-backports-in-debian-11-bullseye/
+* HiDPI console setup:
+    - http://www.ateijelo.com/blog/2017/02/01/linux-console-high-dpi-display
+    - see /usr/share/consolefonts for options
+    - edit /etc/default/console-setup 
+    - run `setupcon`
+
+## 2022-11-22
+* laptop screen not receiving input?
+    - use Alt-L-click to drag windows
+* Openbox shortcut: redecorate window 
+    - https://askubuntu.com/questions/453953/how-to-redecorate-windows 
+    - `cd .config/openbox; ln -s ~/admin/dotfiles/lxde-rc.xml .`
+    - `openbox --reconfigure`
+* Openbox shortcut: MoveResizeTo
+    - `<keybind key="A-W-2"> <action name="MoveResizeTo"> <monitor>2</monitor> </action> </keybind>`
+
+## 2023-01-10
+* add xfer-gacrc to .ssh/.config
+
+## 2023-01-16
+* Volume, default device
+    - in .config/openbox/lxde-rc.xml, use `pactl ... @DEFAULT_SINK@`
+
+## 2023-02-12
+* Backup DVD archive to carya:media
+* Audio: install audacity, moc (mocp), musikcube
+    - config theme: .moc/config
+    - https://github.com/clangen/musikcube/wiki/user-guide
+* install parallel
+
+## 2023-03-29
+* Install quarto from deb
+    - qurto config: `cd ~/local/bin; ln -s /opt/quarto/bin/* .`
+    - Vim plugin, clone into .vim/bundle: https://github.com/quarto-dev/quarto-vim
+
+## 2023-04-12
+* Debian mirror expired, change to https://deb.debian.org (redirector)
+* Install blocking on quarto
+    - create /usr/local/bin, upgrade via dpkg -a
+* Install android-file-transfer, adb, android-sdk-platform-tools-common
+    - phone won't connect, error "Unable to open MTP device “001,094"
+
+## 2023-05-01
+* apt upgrade, reinstall cisco anyconnect - still not working
+* Install openconnect, works fine for remote.uga.edu
+
+## 2023-05-08
+* Add .pgpass for postgres to carya covid
+* Postgres access to carya
+    - Add alias my.pg.carya: tunnel
+    - Add .zshrc env vars
+    - Port forwarding & pw Ref: https://stackoverflow.com/questions/16835761/postgresql-via-ssh-tunnel
+    - TODO: autossh? https://www.harding.motd.ca/autossh/
+
+## 2023-05-09
+* add mount.xfer.sh in ~/mnt
+    - `sshfs xfer:/work/prlab/xian ./xfer.work`
+
+## 2023-05-11
+* zoom annotate: 
+    - Fix black screen bug:
+    - https://support.zoom.us/hc/en-us/articles/202082128-Black-Screen-During-Screen-Sharing
+    - `apt install xcompmgr`
+    - `xcompmgr -c -l0 -t0 -r0 -o.00 &`
+
+## 2023-10-24
+* symlink bin/g++: compiling R package (which?)
+
+## 2023-10-31
+* install vim-airline and themes :
+    - https://github.com/vim-airline/vim-airline
+
+## 2023-11-15
+* Fix screen blank:
+    - check status: `xset -q`
+    - Disable DPMS: `sudo xset -dpms`
+    - Tested for each of standby, suspend, off; none works (screens come back): `xset dpms 20 0 0`
+    - works: `sudo xset dpms force off`
+    - https://shallowsky.com/linux/x-screen-blanking.html
+    - https://forums.debian.net/viewtopic.php?t=146063
+
+

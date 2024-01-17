@@ -48,7 +48,11 @@ export PAGER=less
 export LESS="-iMSx4 -FX"
 export PGDATABASE=covid
 export BUILDDIR=~/build
-
+## psql
+alias my.pg.carya='ssh -L 7432:localhost:5432 -N -f carya'
+export PGDATABASE=covid
+export PGHOST=localhost
+export PGPORT=7432
 
 ## programs
 ## -U crashes network on disconnect
@@ -57,6 +61,8 @@ alias my.vpn="sudo openconnect --no-dtls --authgroup='01 Default' -u cg79628 rem
 ## cleanup routes after vpn connect: more effort than its worth?
 alias my.route.fix="sudo route add default gw 192.168.1.1 dev br0"
 
+#alias my.vpn="sudo openconnect --no-dtls -U xian --authgroup='01 Default' -u cg79628 remote.uga.edu"
+alias lfeh='feh -F --draw-filename --draw-exif --fontpath /usr/share/fonts/truetype/liberation/ -e "LiberationSans-Regular/16"'
 alias my.iftop='sudo iftop -c ~xian/.iftoprc -n -i wlp61s0'
 ## prompt
 autoload -U promptinit

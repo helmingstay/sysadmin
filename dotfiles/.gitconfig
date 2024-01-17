@@ -24,3 +24,5 @@
     high1 = log --all --graph --pretty=medium --abbrev-commit --simplify-by-decoration --decorate --date=short 
 [credential]
 	helper = cache
+[pull]
+	ff = only

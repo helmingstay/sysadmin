@@ -8,6 +8,9 @@ options(repos=c(CRAN="https://cloud.r-project.org/"), download.file.method = "li
 ## 2023-01, https://www.census.gov/developer/
 .census.key='2b30e98e2928ef69276002eb4e11e1b25036fe25'
 
+## 2023-01, https://www.census.gov/developer/
+.census.key=readLines('~/.ssh/census.api.key', n=1)
+
 #Sys.setenv(TZ="GMT")
 Sys.setenv(TZ="America/Phoenix")  #doesn't work with xts::apply.daily(), fixed?
 

@@ -1,4 +1,4 @@
-## 2020-11
+## 2021-11
 * initial config: 
     - rework nova launcher layout
     - auth apps...
@@ -17,3 +17,9 @@
 
 ## 2021-11-14
 * OpenWRT trouble with static routes, disable dynamic MAC
+
+## 2023-04
+* black screen of death after forced/auto syste upgrade
+
+## 2023-04?
+* Moved to pixel 7
