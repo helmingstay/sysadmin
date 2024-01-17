@@ -178,9 +178,9 @@
   <keyboard>
     <keybind key="XF86MonBrightnessUp"><action name="Execute"><command>brightnessctl set +5% </command></action></keybind>
     <keybind key="XF86MonBrightnessDown"><action name="Execute"><command>brightnessctl set 3%- </command></action></keybind>
-  <keybind key="XF86AudioLowerVolume"><action name="Execute"><command>pactl -- set-sink-volume 0 -7% </command></action></keybind>
-  <keybind key="XF86AudioRaiseVolume"><action name="Execute"><command>pactl -- set-sink-volume 0 +5% </command></action></keybind>
-  <keybind key="XF86AudioMute"><action name="Execute"><command>pactl -- set-sink-volume 0 0 </command></action></keybind>
+  <keybind key="XF86AudioLowerVolume"><action name="Execute"><command>pactl -- set-sink-volume @DEFAULT_SINK@ -7% </command></action></keybind>
+  <keybind key="XF86AudioRaiseVolume"><action name="Execute"><command>pactl -- set-sink-volume @DEFAULT_SINK@ +5% </command></action></keybind>
+  <keybind key="XF86AudioMute"><action name="Execute"><command>pactl -- set-sink-volume @DEFAULT_SINK@ 0 </command></action></keybind>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left"><action name="DesktopLeft"><dialog>no</dialog><wrap>no</wrap></action></keybind>

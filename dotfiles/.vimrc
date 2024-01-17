@@ -1,6 +1,9 @@
 set history=500
-" increment
-:nnoremap <C-i> <C-a>
+" increment (don't collide with tmux control seq
+:nnoremap <C-p> <C-a>
+" save file from insert
+inoremap <C-y> <C-\><C-o>:w<cr>
+noremap <C-y> :w<cr>
 
 
 if has("gui_running")
@@ -13,12 +16,22 @@ endif
 
 execute pathogen#infect()
 
+" 2023-10: airline
+" See https://github.com/vim-airline/vim-airline/wiki/Screenshots
+"let g:airline_theme='luna'
+let g:airline_theme='minimalist'
+" https://github.com/vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
 " https://stackoverflow.com/questions/526858/how-do-i-make-vim-do-normal-bash-like-tab-completion-for-file-names
 set wildmode=longest,list,full
 set wildmenu
 
 au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+" see https://stackoverflow.com/questions/67419516/vim-how-to-detect-stdin-input-in-vimrc
+au BufWinEnter * if get(v:argv, 1, '') != '' | silent loadview | endif 
 
 :filetype on
 :filetype plugin on
@@ -113,7 +126,7 @@ set showmode
 "Keep cursor on same column when doing page movement
 set nostartofline
 "expansion key (I think it's like the bash command completion)
-set wildchar=<TAB>
+"set wildchar=<TAB>
 "show current position
 set ruler
 "show report on changes to file, 0 means all changes
@@ -152,7 +165,7 @@ imap =equ \begin{equation}<CR><CR>\end{equation}<Esc>$ka
 
 
 "unindent
-imap <S-Tab> <C-o><<
+"imap <S-Tab> <C-o><<
 
 
 "disable mouse scroll

@@ -53,3 +53,7 @@ vnoremap <buffer> r :w >> ~/.r-pipe<CR>
 
 "write and process mode (somehow mapping <C-Enter> does not work)
 inoremap <M-Enter> <Esc>:execute line(".") 'w >> ~/.r-pipe'<CR>o
+
+
+inoremap <buffer> `, <-
+inoremap <buffer> `. %.>%
