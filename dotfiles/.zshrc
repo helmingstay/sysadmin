@@ -46,13 +46,17 @@ bindkey '^R' history-incremental-search-backward
 #export PATH=$PATH:~/bin:~/src/gocode/bin
 export PAGER=less
 export LESS="-iMSx4 -FX"
-#export PGDATABASE=covid
+export PGDATABASE=covid
 export BUILDDIR=~/build
 
 
 ## programs
 ## -U crashes network on disconnect
+## 2023-12: openconnect vpn doesn't play nice with home assistant bridge
 alias my.vpn="sudo openconnect --no-dtls --authgroup='01 Default' -u cg79628 remote.uga.edu"
+## cleanup routes after vpn connect: more effort than its worth?
+alias my.route.fix="sudo route add default gw 192.168.1.1 dev br0"
+
 alias my.iftop='sudo iftop -c ~xian/.iftoprc -n -i wlp61s0'
 ## prompt
 autoload -U promptinit

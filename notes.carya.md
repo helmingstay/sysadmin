@@ -128,4 +128,4 @@ Drives:
 ## 2023-11-23
 * fix network bridge 
     - no internet access due to superceding default route to enp1s0 
-    - add to br0: `post-up route add default gw 192.168.1.1 dev br0`
+    - add to br0: `post-up route add default gw 192.168.1.1 dev br0`: see .zshrc
