@@ -4,6 +4,18 @@
 	autocrlf = input
 	safecrlf = true
 	#whitespace = cr-at-eol
+[color]
+    ui = auto
+
+## in `man git-config`, see:
+## color list 
+## and color.diff.<slot>
+[color "diff"]
+    meta = bold yellow
+    plain = dim blue
+    func = dim blue
+    commit = ul cyan
+    
 [log]
     abbrevCommit = true
 

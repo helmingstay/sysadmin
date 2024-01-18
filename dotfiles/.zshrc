@@ -14,7 +14,7 @@ compinit
 #
 # xian 2021-01
 #export PATH=$PATH:~/bin:~/local/bin
-export PATH=$PATH:~/local/bin
+export PATH=$PATH:~/local/bin:~/local/parallel/bin
 export PAGER=less
 export EDITOR=/usr/bin/vim
 TERM=xterm-256color
@@ -29,6 +29,27 @@ autoload -U colors && colors
 ##PS1='\[\033[01;34m\]%l %T %n@%m:\[\033[00m\]%~\[\033[01;32m\]$[\033[00m\]' 
 PS1="%{$fg[green]%}%l %T %n@%m:%{$reset_color%}%{$fg[green]%}%~$%{$reset_color%}" # history.24Htime-user@host:workingdir$
 
-alias my.mod.R='module load R/4.2.1-foss-2020b'
 alias lls='ls -alh'
-source .modules
+
+## WIP... config slurm session startup
+if [[ -z $INIT_MOD ]]
+then
+    source ~/.modules
+    export INIT_MOD=1
+fi
+
+if [[ -z $INIT_INTERACT && $SLURM_JOB_NAME = 'interact' ]]
+then 
+    source ~/.modules.interact
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export MC_CORES=$SLURM_CPUS_PER_TASK
+    FN=~/.slurm.jobs
+    MSG="\n\n## Starting job ID $SLURM_JOB_ID at $(date +'%Y-%m-%d %H:%M:%S')"
+    echo $MSG
+    echo $MSG >> $FN
+    
+    TRAPEXIT() {
+        seff $SLURM_JOB_ID >> $FN 
+    }
+    export INIT_INTERACT=1
+fi

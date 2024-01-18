@@ -26,6 +26,9 @@ options(defaultPackages =
 .First = function() {
     library(utils)
     library(tools)
+    ## SLURM: limit memory
+    #library(unix)
+    #rlimit_as(as.numeric(Sys.getenv('')))
     ## misc options
     options(error=recover) ## requires utils package
     options(menu.graphics=F) ## don't use graphical help chooser 

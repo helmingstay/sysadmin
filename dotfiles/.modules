@@ -1,1 +1,2 @@
-module load tmux/3.1c-GCCcore-8.3.0
+module load tmux
+module load git
