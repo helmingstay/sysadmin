@@ -10,3 +10,7 @@
     - module load GCC/10
     - install.packages('arrow')
     - Ref: https://cran.r-project.org/web/packages/arrow/vignettes/install.html
+
+## 2023-01-24
+* local install gnu parallel 
+    - use for bulk download

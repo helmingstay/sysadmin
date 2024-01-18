@@ -15,6 +15,7 @@ compinit
 # xian 2021-01
 #export PATH=$PATH:~/bin:~/local/bin
 export PATH=$PATH:~/local/bin:~/local/parallel/bin
+export MANPATH=:~/local/parallel/share/man
 export PAGER=less
 export EDITOR=/usr/bin/vim
 TERM=xterm-256color
