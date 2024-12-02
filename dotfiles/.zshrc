@@ -54,7 +54,7 @@ export BUILDDIR=~/build
 
 ## android studio
 # https://www.airaghi.net/en/2017/09/21/linux-change-temporary-directory-for-android-studio
-export _JAVA_OPTIONS=-Djava.io.tmpdir=/home/xian/local/tmp
+#export _JAVA_OPTIONS=-Djava.io.tmpdir=/home/xian/local/tmp
 
 
 
@@ -64,10 +64,14 @@ alias ino.serial='ino serial -- --escape p'
 alias lxauto='vi ~/.config/lxsession/LXDE/autostart'
 alias lfeh='feh -F --draw-filename --draw-exif --fontpath /usr/share/fonts/truetype/liberation/ -e "LiberationSans-Regular/16"'
 alias my.iftop='sudo iftop -c ~xian/.iftoprc -n -i wlan0'
+## xian 2023-01
+#alias my.vpn='/opt/cisco/anyconnect/bin/vpn connect remote.uga.edu'
+alias my.vpn="sudo openconnect --no-dtls --authgroup='01 Default' -u cg79628 remote.uga.edu"
+#alias my.vpn="sudo openconnect --no-dtls -U xian --authgroup='01 Default' -u cg79628 remote.uga.edu"
+
 ## prompt
 autoload -U promptinit
 promptinit
-
 autoload -U colors && colors
 ##
 #PS1='\[\033[01;34m\]%l %T %n@%m:\[\033[00m\]%~\[\033[01;32m\]$[\033[00m\]' 
