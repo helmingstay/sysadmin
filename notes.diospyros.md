@@ -51,4 +51,10 @@
     - https://wiki.centos.org/HowTos/RsnapshotBackups
 
 
-## ?? move archive/canvio to carya
+## ?? move canvio archive.raid to carya
+
+## 2024-12-05
+* Final backup to carya:archive.raid/backup
+    - diospyros.projects.2018-12.tgz
+    - keep admin separate in home
+* Decommission diospyros for new home assistant install
