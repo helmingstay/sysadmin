@@ -52,8 +52,8 @@ set softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 let Tlist_Compact_Format = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
-nnoremap <C-l> :TlistToggle<CR>
-nnoremap <C-p> :!cscope -b -k <ENTER> :cs reset<ENTER><ENTER>
+"nnoremap <C-l> :TlistToggle<CR>
+"nnoremap <C-p> :!cscope -b -k <ENTER> :cs reset<ENTER><ENTER>
 " remove extra space at bottom?
 set guiheadroom=0
 

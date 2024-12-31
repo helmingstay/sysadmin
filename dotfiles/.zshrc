@@ -49,11 +49,19 @@ export LESS="-iMSx4 -FX"
 export BUILDDIR=~/build
 ## psql
 alias my.pg.carya='ssh -L 7432:localhost:5432 -N -f carya'
-export PGDATABASE=covid
-export PGHOST=localhost
-export PGPORT=7432
+#export PGDATABASE=covid
+#export PGHOST=localhost
+#export PGPORT=7432
 
 ## programs
+## 
+## start ssh tunnel to cloud with control socket
+## Remote vs local: https://iximiuz.com/en/posts/ssh-tunnels/
+## Control socket: https://unix.stackexchange.com/questions/83806/how-to-kill-ssh-session-that-was-started-with-the-f-option-run-in-background
+## 
+alias my.ssh.start="ssh -f -N -M -S ~/.ssh/.socket.cloud -R 0.0.0.0:55022:localhost:22 cloud & echo 'Check .ssh/.socket.cloud'"
+## close tunnel
+alias my.ssh.stop="ssh -S ~/.ssh/.socket.cloud -O exit cloud"
 ## -U crashes network on disconnect
 alias my.vpn="sudo openconnect --no-dtls --authgroup='01 Default' -u cg79628 remote.uga.edu"
 #alias my.vpn="sudo openconnect --no-dtls -U xian --authgroup='01 Default' -u cg79628 remote.uga.edu"

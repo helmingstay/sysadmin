@@ -26,3 +26,5 @@
 	helper = cache
 [pull]
 	ff = only
+[init]
+	defaultBranch = main

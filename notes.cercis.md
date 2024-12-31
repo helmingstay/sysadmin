@@ -365,4 +365,30 @@ auto enp0s31f6
     - https://shallowsky.com/linux/x-screen-blanking.html
     - https://forums.debian.net/viewtopic.php?t=146063
 
+## 2024-07-16
+* Upgrade to bookworm:
+    - follow instructions here: https://linuxize.com/post/how-to-upgrade-debian-11-to-debian-12/
+    - need to cleanup postgresql, upgrade cluster (see pic)
+    - reinstall lots of R packages for 4.2
 
+## 2024-08-06
+* Upgrade cleanup, issues with polkit
+    - adduser, add group: https://answers.launchpad.net/ubuntu/+question/709594
+    - `dpkg --configure -a`
+
+## 2024-11-07
+* R package install stuck on Matrix
+    - See issue https://github.com/microsoft/LightGBM/pull/6434
+    -  `install.packages('https://cran.r-project.org/src/contrib/Archive/Matrix/Matrix_1.6-5.tar.gz')`
+
+## 2024-12-26
+* Move to Gainesville, large monitor stays behind
+    - xrandr: was DP-2 (hub hdmi), 3840x2160+0+0
+    - update ~/local/bin/my.mirror.sh
+
+## 2024-12-28
+* Upgrade pgcluster
+    - `sudo pg_lsclusters`
+    - `pg_dropcluster --stop 15 main`
+    - `sudo pg_upgradecluster  13 main`
+    - disable .zshrc PG*=
