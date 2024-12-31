@@ -16,6 +16,26 @@ endif
 
 execute pathogen#infect()
 
+" Vim slime: 
+" https://github.com/jpalardy/vim-slime
+" Tmux: C-a :display-panes (^a-q)
+" Set target: ^c-v
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+let g:slime_dont_ask_default = 1
+nmap <C-c><C-l> <Plug>SlimeLineSend
+nmap <C-c><C-c> <Plug>SlimeParagraphSend
+nmap <C-c><C-g> <Plug>SlimeMotionSend
+nmap <C-c><C-v> :execute 'SlimeSend1' expand(@")<CR>
+" SlimeSend1 example: see https://vi.stackexchange.com/questions/15447/sending-variable-commands-in-vim-slime
+" This doesn't work...
+" nmap <C-c><C-v> <Plug>SlimeSend0 expand('@"')
+
+
+
+
+
+
 " 2023-10: airline
 " See https://github.com/vim-airline/vim-airline/wiki/Screenshots
 "let g:airline_theme='luna'

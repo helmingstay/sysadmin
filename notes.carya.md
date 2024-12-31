@@ -58,7 +58,6 @@
     - `sudo virsh list`
     - `sudo virsh autostart hass`
     - add hass dhcp to openwrt 
-    - `sudo virsh restart hass`
 
 ### background/refs
 * network
@@ -129,3 +128,87 @@ Drives:
 * fix network bridge 
     - no internet access due to superceding default route to enp1s0 
     - add to br0: `post-up route add default gw 192.168.1.1 dev br0`: see .zshrc
+
+## 2024-01-30
+* install & config osfclient
+    - ref https://osfclient.readthedocs.io/en/latest/cli-usage.html
+
+* `sudo apt install pip`
+* `pip install osfclient`
+* copy ~/.osfcli.config from cercis (contains to api key, don't add to dotfiles)
+
+## 2024-05-07
+* ssh to carya not working after reboot
+    - minor change to /etc/network/interfaces, move to end: `iface enp1s0 inet manual`
+* disable cisco anyconnect systemctl service:
+    - `sudo systemctl disable vpnagentd.service`
+
+## 2024-05-24
+* hardcode enp1s0 mac address in /etc/network/interfaces to match router dns lease
+* pixel5 backup
+    - change ip, add cercis key
+    - `time  rsync -auv --progress  'pixel5:/sdcard/DCIM/Camera/' ~/personal/pixel5/camera-2024-05-24`
+
+## 2024-06-28
+* More /etc/network/interfaces 
+    - change iface enp1s0 from manual to static dhcp 
+
+## 2024-07-15
+* more futzing with /etc/network/interfaces
+- remove router dhcp entry for carya (192.168.1.10)
+- Add above br0:
+```
+auto enp1s0
+iface enp1s0 inet manual
+        address 192.168.1.10/24
+        gateway 192.168.1.1
+```
+
+## 2024-11-21
+* add mount.cercis.projects.sh (sshfs for work/cercis.projects)
+* system update and dist-upgrade to bookworm
+    - ref: https://www.cyberciti.biz/faq/update-upgrade-debian-11-to-debian-12-bookworm/
+    - interrupted remote install/reboot, continuance
+* TODO: 
+    - add nonfree-firmware - ref: https://wiki.debian.org/Firmware#Debian_12_.28bookworm.29_and_later
+    - Postgres cluster upgrade, ref: /usr/share/doc/postgresql-common/README.Debian.gz
+
+## 2024-12-05
+* Backup homeassist, upgrade
+    - create backups, copy to 
+    - scp on cercis to carya: 
+        `scp -O homeassist:'/root/backup/*' carya:archive.raid/backup/homeassist/carya.root.backup.to.2024-12-05/`
+    - ref: https://community.home-assistant.io/t/impossible-to-send-a-file-with-scp-msg-subsystem-request-failed-on-channel-0/460995/2
+    - trying to fix ssh access from carya - how to add authorized_keys?
+    - di
+* Issues with archive.raid, hardward and error-checking
+    - Device resets on usb HDDs for archive.raid, *very* slow copy
+    - unmount and plug directly into carya
+    - /dev/sdc2 corruption errors on long copy: 
+        - check with `sudo btrfs dev stats /dev/sdc2`
+    - scrub array: `time sudo btrfs scrub start archive.raid`
+    - check devices (umount first): `sudo btrfs dev stats /dev/sdc2`
+    - Ref: https://wiki.tnonline.net/w/Btrfs/Scrub
+
+    
+## 2024-12-10
+* update ssh.config: pixel5 to pixel7
+* Backup pixel7 pics
+    - `time  rsync -auv --progress  'pixel7:/sdcard/DCIM/Camera/PXL_2024*.jpg' ~/personal/pixel7/camera-2024-12-10`
+    - `time  rsync -auv --progress  'pixel7:/sdcard/DCIM/Camera/PXL_2024*.mp4' ~/personal/pixel7/vid-2024-12-10`
+* install rdfind, use to remove duplicate pics
+
+## 2024-12-11
+* Cleanup mounts/dirs
+    - remove project/
+    - move cercis sshfs mount to ~/cercics.projects
+    - move projects/uga to work/ (separate filesystem)
+* github push not working from carya: no route to host
+
+## 2024-12-31
+* save/shutdown home assistant:
+    - `sudo virsh save hass ./hass-carya-virsh-save.2024-12-13.state`
+    - move to archive.raid/backup/homeassist
+    - `sudo ifdown br0`
+    - remove br0 from /etc/network/interfaces, set enp1s0 to dhcp/auto
+    - set carya dhcp in openwrt

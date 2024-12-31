@@ -46,13 +46,12 @@ bindkey '^R' history-incremental-search-backward
 #export PATH=$PATH:~/bin:~/src/gocode/bin
 export PAGER=less
 export LESS="-iMSx4 -FX"
-export PGDATABASE=covid
 export BUILDDIR=~/build
 ## psql
-alias my.pg.carya='ssh -L 7432:localhost:5432 -N -f carya'
 export PGDATABASE=covid
-export PGHOST=localhost
-export PGPORT=7432
+#alias my.pg.carya='ssh -L 7432:localhost:5432 -N -f carya'
+#export PGHOST=localhost
+#export PGPORT=7432
 
 ## programs
 ## -U crashes network on disconnect
